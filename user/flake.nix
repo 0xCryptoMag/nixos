@@ -28,7 +28,7 @@
 
 		# Standalone home-manager configuration entrypoint
 		# Available through 'home-manager --flake .#your-username@your-hostname'
-		homeConfiguration."zxcm@nixMag" = home-manager.lib.homeManagerConfiguration {
+		homeConfigurations."zxcm" = home-manager.lib.homeManagerConfiguration {
 			inherit pkgs;
 			extraSpecialArgs = { inherit inputs outputs; };
 			modules = [ ./home/home.nix ];
