@@ -56,7 +56,7 @@
 			wl-clipboard				# For clipboard functionality
 			wget						# Downloader
 		];
-		sessionVariables = {			# Improve NVIDIA perf on wayland
+		sessionVariables = {
 			WLR_NO_HARDWARE_CURSORS = "1";
 			LIBVA_DRIVER_NAME = "nvidia";
 			GBM_BACKEND = "nvidia-drm";
@@ -98,7 +98,12 @@
 	};
 
 	programs = {
-		zsh.enable = true;				# Shell
+		zsh = {						# Shell
+			enable = true;
+			enableCompletion = true;
+			autosuggestions.enable = true;
+			syntaxHighlighting.enable = true;
+		};
 		mtr.enable = true;				# Network troubleshooter
 		gnupg.agent = {					# SSH key manager
 			enable = true;

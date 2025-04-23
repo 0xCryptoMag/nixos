@@ -25,11 +25,11 @@
 			neovim						# Text editor
 			vscode						# Second text editor
 			hyprland					# Window Manager
-			hyprpanel					# Status bar
+			# hyprpanel					# Status bar
 			wofi						# Application launcher
 			yazi						# Terminal file manager
 			xfce.thunar					# GUI file manager
-			xfce.thunar-vcs-plugin		# Subversion and Git support
+			# xfce.thunar-vcs-plugin	# Subversion and Git support
 			xfce.thunar-archive-plugin	# Thunar archive plugin
 			xfce.thunar-volman			# Thunar volman plugin
 			xfce.tumbler				# For Thunar thumbnails
@@ -38,28 +38,26 @@
 			protonmail-desktop			# Mail client
 			protonvpn-gui				# VPN client
 			proton-pass					# Password manager
+			bazecor						# Keyboard configurator
 		];
 		file = {};
-		sessionVariables = {};
+		sessionVariables = {
+			EDITOR = "code";
+			NIXOS_OZONE_WL = "1";
+			ELECTRONE_OZONE_PLATFORM = "wayland";
+			_JAVA_AWT_WM_NONREPARENTING = "1";
+			QT_QPA_PLATFORM = "wayland";
+			GDK_BACKEND = "wayland";
+		};
 	};
 
 	programs = {
-		home-manager.enable = true;
-		git.enable = true;
-		hyprland = {					# Window Manager
-			enable = true;
-			xwayland.enable = true;
-		};
-		programs.thunar = {				# GUI file manager
-			enable = true;
-			plugins = with pkgs.xfce; [
-				thunar-archive-plugin
-				thunar-volman
-			];
-		};
+		zsh.enable = true;				# Shell
+		home-manager.enable = true;		# Home Manager
+		git.enable = true;				# Git version control system
 	};
 
-	systemd.user.startservices = "sd-switch";
+	systemd.user.startServices = "sd-switch";
 
 	# This value determines the Home Manager release that your configuration is
 	# compatible with. This helps avoid breakage when a new Home Manager release
